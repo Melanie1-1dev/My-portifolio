@@ -12,35 +12,18 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden"
     >
-      {/* Continuous animated grid background */}
+      {/* Continuous animated background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]" />
-        {/* Soft continuous floating orbs */}
         <motion.div
           className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-accent/10 blur-3xl"
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-emerald-500/5 blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 40, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, -50, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
@@ -110,48 +93,34 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Animated Photo */}
+          {/* Right side: Animated Photo + Code Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative flex justify-center order-1 lg:order-2"
+            className="relative flex flex-col items-center gap-8 order-1 lg:order-2"
           >
-            {/* Continuous floating + glow container */}
+            {/* ===== ANIMATED PHOTO ===== */}
             <motion.div
               className="relative"
-              animate={{
-                y: [0, -12, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              {/* Soft rotating ring */}
+              {/* Rotating rings */}
               <motion.div
                 className="absolute -inset-4 rounded-full border border-accent/30"
                 animate={{ rotate: 360 }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
                 className="absolute -inset-8 rounded-full border border-accent/10"
                 animate={{ rotate: -360 }}
-                transition={{
-                  duration: 30,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
 
-              {/* Photo with continuous subtle pulse glow */}
+              {/* Photo */}
               <motion.div
-                className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl"
+                className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl"
                 animate={{
                   boxShadow: [
                     "0 0 20px rgba(16, 185, 129, 0.2)",
@@ -159,11 +128,7 @@ export default function Hero() {
                     "0 0 20px rgba(16, 185, 129, 0.2)",
                   ],
                 }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Image
                   src="/images/mela.png"
@@ -171,38 +136,64 @@ export default function Hero() {
                   fill
                   className="object-cover object-top"
                   priority
-                  sizes="(max-width: 768px) 256px, 320px"
+                  sizes="(max-width: 768px) 224px, 288px"
                 />
-                {/* Soft gradient overlay at bottom to reduce frame distraction */}
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
               </motion.div>
 
-              {/* Small continuous orbiting accent dots */}
+              {/* Pulsing dots */}
               <motion.div
                 className="absolute top-4 right-8 w-3 h-3 rounded-full bg-accent"
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.7, 1, 0.7],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                animate={{ scale: [1, 1.4, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
                 className="absolute bottom-10 left-6 w-2 h-2 rounded-full bg-emerald-400"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.6, 1, 0.6],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
+                animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               />
+            </motion.div>
+
+            {/* ===== CODE CARD (kept) ===== */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="w-full max-w-sm rounded-2xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 shadow-xl font-mono text-xs leading-relaxed"
+            >
+              <div className="space-y-1 text-zinc-600 dark:text-zinc-300">
+                <p>
+                  <span className="text-purple-500">const</span>{" "}
+                  <span className="text-blue-400">developer</span> = {"{"}
+                </p>
+                <p className="pl-4">
+                  name:{" "}
+                  <span className="text-emerald-400">&quot;NDIKUBWIMANA Melanie&quot;</span>,
+                </p>
+                <p className="pl-4">
+                  role:{" "}
+                  <span className="text-emerald-400">&quot;Software Developer&quot;</span>,
+                </p>
+                <p className="pl-4">
+                  school:{" "}
+                  <span className="text-emerald-400">&quot;Rwanda Coding Academy&quot;</span>,
+                </p>
+                <p className="pl-4">
+                  focus: [
+                  <span className="text-emerald-400">
+                    &quot;Web&quot;, &quot;Embedded&quot;, &quot;AI&quot;
+                  </span>
+                  ],
+                </p>
+                <p className="pl-4">
+                  status:{" "}
+                  <span className="text-emerald-400">&quot;Building real solutions&quot;</span>
+                </p>
+                <p>{"}"};</p>
+                <p className="mt-3 text-zinc-400">
+                  // Always learning. Always building.
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
