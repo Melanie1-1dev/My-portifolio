@@ -76,6 +76,107 @@ export default function Footer() {
 
             {/* Middle – Navigation */}
             <div>
-            
+              <p className="text-xs font-medium tracking-widest text-zinc-500 uppercase mb-5">
+                Navigation
+              </p>
+              <ul className="space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-zinc-300 hover:text-white transition-colors text-[15px]"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right – Status */}
+            <div>
+              <p className="text-xs font-medium tracking-widest text-zinc-500 uppercase mb-5">
+                Status
+              </p>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent" />
+                </span>
+                <span className="text-white font-medium">Open to opportunities</span>
+              </div>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-6 max-w-xs">
+                I am currently looking for internships, collaborations, and
+                interesting projects to build and learn from.
+              </p>
+              <a
+                href={`mailto:${socials.email}`}
+                className="inline-flex items-center gap-2 text-accent font-medium text-sm hover:underline underline-offset-4"
+              >
+                START A CONVERSATION
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="mt-16 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-zinc-500">
+            <p>© {new Date().getFullYear()} Ndikubwimana Melanie. All rights reserved.</p>
+
+            {/* Floating pill navigation (inspired by the screenshot) */}
+            <div className="relative">
+              <div className="flex items-center gap-1 bg-zinc-800/80 backdrop-blur-md border border-zinc-700/50 rounded-full px-2 py-1.5 shadow-xl">
+                <a
+                  href="#home"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
+                  aria-label="Home"
+                >
+                  <Home className="w-4 h-4" />
+                </a>
+                <a
+                  href="#about"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
+                  aria-label="About"
+                >
+                  <User className="w-4 h-4" />
+                </a>
+                <a
+                  href="#skills"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
+                  aria-label="Skills"
+                >
+                  <Code2 className="w-4 h-4" />
+                </a>
+                <a
+                  href="#projects"
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-accent text-white shadow-md"
+                  aria-label="Projects"
+                >
+                  <Briefcase className="w-4 h-4" />
+                </a>
+                <a
+                  href="#education"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
+                  aria-label="Education"
+                >
+                  <GraduationCap className="w-4 h-4" />
+                </a>
+                <a
+                  href="#contact"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
+                  aria-label="Contact"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            <p className="flex items-center gap-1.5">
+              MADE WITH <span className="text-red-400">♥</span> IN RWANDA
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }
