@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import Link from "next/link";
 
 export default function Projects() {
   const featured = projects.filter((p) => p.featured);
@@ -20,12 +21,23 @@ export default function Projects() {
           <p className="text-accent font-mono text-sm tracking-wider mb-3">
             Projects
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Things I&apos;ve built
-          </h2>
-          <p className="mt-4 text-zinc-600 dark:text-zinc-400 max-w-2xl">
-            Real projects focused on solving problems with technology.
-          </p>
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+                Things I&apos;ve built
+              </h2>
+              <p className="mt-4 text-zinc-600 dark:text-zinc-400 max-w-2xl">
+                Real projects focused on solving problems with technology.
+              </p>
+            </div>
+            <Link
+              href="/projects"
+              className="inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
+            >
+              Explore all projects
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
         </motion.div>
 
         <div className="space-y-12">

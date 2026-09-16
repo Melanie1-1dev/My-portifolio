@@ -9,6 +9,7 @@ export interface Project {
   live?: string;
   image?: string;
   featured?: boolean;
+  category?: "Frontend" | "Full-Stack" | "Embedded";
 }
 
 export interface SkillCategory {

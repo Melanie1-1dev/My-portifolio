@@ -147,13 +147,13 @@ export default function Footer() {
                 >
                   <Code2 className="w-4 h-4" />
                 </a>
-                <a
-                  href="#projects"
+                <Link
+                  href="/projects"
                   className="w-9 h-9 rounded-full flex items-center justify-center bg-accent text-white shadow-md"
                   aria-label="Projects"
                 >
                   <Briefcase className="w-4 h-4" />
-                </a>
+                </Link>
                 <a
                   href="#education"
                   className="w-9 h-9 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"

@@ -2,6 +2,20 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "health-management-system",
+    title: "Health Management System",
+    description:
+      "A streamlined health-management web application designed to make patient information and care workflows easier to manage.",
+    problem:
+      "Health information and everyday care tasks can be difficult to organize when they are spread across manual or disconnected workflows.",
+    solution:
+      "A focused digital experience that brings health-management tasks into one clear, accessible interface.",
+    tech: ["React", "JavaScript", "CSS", "Vercel"],
+    live: "https://health-managemnt-project.vercel.app/",
+    featured: true,
+    category: "Frontend",
+  },
+  {
     id: "green-trace-iq",
     title: "Green-Trace IQ",
     description:
@@ -14,6 +28,7 @@ export const projects: Project[] = [
     github: "https://github.com/Melanie1-1dev", // placeholder – update with real repo
     live: undefined,
     featured: true,
+    category: "Embedded",
   },
   {
     id: "scouts",
@@ -28,6 +43,7 @@ export const projects: Project[] = [
     github: "https://github.com/Melanie1-1dev", // placeholder
     live: undefined,
     featured: true,
+    category: "Full-Stack",
   },
   {
     id: "restaurant-system",
@@ -42,6 +58,7 @@ export const projects: Project[] = [
     github: "https://github.com/Melanie1-1dev", // placeholder
     live: undefined,
     featured: true,
+    category: "Full-Stack",
   },
   // Placeholder for future projects
   {
@@ -52,5 +69,6 @@ export const projects: Project[] = [
     solution: "—",
     tech: [],
     featured: false,
+    category: "Frontend",
   },
 ];

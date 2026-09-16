@@ -41,15 +41,25 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.name === "Projects" ? (
+                <Link
+                  key={link.name}
+                  href="/projects"
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
           </div>
 
           {/* Right side */}
@@ -93,16 +103,27 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-zinc-200 dark:border-zinc-800">
             <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="px-2 py-2 text-sm font-medium hover:text-accent transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.name === "Projects" ? (
+                  <Link
+                    key={link.name}
+                    href="/projects"
+                    onClick={() => setIsOpen(false)}
+                    className="px-2 py-2 text-sm font-medium hover:text-accent transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="px-2 py-2 text-sm font-medium hover:text-accent transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
               <div className="flex gap-4 px-2 pt-2">
                 <a href={socials.github} target="_blank" rel="noopener noreferrer">
                   <Github className="w-5 h-5" />
