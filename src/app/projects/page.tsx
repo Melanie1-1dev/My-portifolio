@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowUpRight, ExternalLink, Github, HeartPulse } from "lucide-react";
 import { projects } from "@/data/projects";
+import Footer from "@/components/layout/Footer";
 
 const filters = ["All", "Frontend", "Full-Stack", "Embedded"] as const;
 type Filter = (typeof filters)[number];
@@ -61,8 +62,9 @@ export default function AllProjectsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-zinc-50 py-10 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50 sm:py-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <>
+      <main className="min-h-screen bg-zinc-50 py-10 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Link href="/#projects" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 transition-colors hover:text-accent dark:text-zinc-400">
           <ArrowLeft className="h-4 w-4" /> Back to portfolio
         </Link>
@@ -111,7 +113,9 @@ export default function AllProjectsPage() {
         </section>
 
         <p className="mt-12 rounded-2xl border border-dashed border-zinc-300 px-6 py-8 text-center text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-400">More projects are on the way — check back soon.</p>
-      </div>
-    </main>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
