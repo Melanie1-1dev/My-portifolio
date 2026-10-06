@@ -16,7 +16,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ndikubwimana Melanie | Software Developer",
+  title: {
+    default: "Ndikubwimana Melanie | Software Developer",
+    template: "%s | Ndikubwimana Melanie",
+  },
   description:
     "Software developer and Embedded Systems enthusiast at Rwanda Coding Academy. Building technology solutions that solve real-world problems.",
   keywords: [
@@ -33,6 +36,7 @@ export const metadata: Metadata = {
     description:
       "Software developer and Embedded Systems enthusiast at Rwanda Coding Academy.",
     type: "website",
+    locale: "en_RW",
   },
 };
 

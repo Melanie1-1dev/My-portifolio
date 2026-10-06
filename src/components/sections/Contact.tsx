@@ -1,5 +1,6 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -26,6 +27,14 @@ const quickLinks = [
 ];
 
 export default function Contact() {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const values = new FormData(event.currentTarget);
+    const subject = `Portfolio message from ${values.get("name")}`;
+    const body = `Name: ${values.get("name")}\nEmail: ${values.get("email")}\n\n${values.get("message")}`;
+    window.location.href = `mailto:${socials.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
   return (
     <section id="contact" className="py-20 md:py-28 bg-[#f5f5f5] dark:bg-zinc-900/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +49,7 @@ export default function Contact() {
             LET&apos;S HAVE A CHAT
           </h2>
           <p className="mt-5 max-w-3xl mx-auto text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
-            Have a project in mind or want to collaborate? Drop a message—I&apos;ll get back to you soon as possible.
+            Have a project in mind or want to collaborate? Drop me a message and I&apos;ll get back to you as soon as possible.
           </p>
         </motion.div>
 
@@ -137,14 +146,18 @@ export default function Contact() {
             transition={{ duration: 0.45 }}
             className="rounded-[30px] border border-[#dfe7eb] bg-[#f5f6f7] p-5 sm:p-7 shadow-[0_18px_50px_rgba(15,23,42,0.07)]"
           >
+            <form onSubmit={handleSubmit}>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block text-left">
                 <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
                   Full Name
                 </span>
                 <input
+                  name="name"
                   type="text"
                   placeholder="Enter your name"
+                  autoComplete="name"
+                  required
                   className="w-full rounded-2xl border border-[#dfe7eb] bg-[#eef2f3] px-4 py-3.5 text-base text-[#0d1b2a] placeholder:text-zinc-400 outline-none transition focus:border-cyan-400 focus:bg-white focus:ring-4 focus:ring-cyan-100"
                 />
               </label>
@@ -154,8 +167,11 @@ export default function Contact() {
                   Email Address
                 </span>
                 <input
+                  name="email"
                   type="email"
                   placeholder="you@example.com"
+                  autoComplete="email"
+                  required
                   className="w-full rounded-2xl border border-[#dfe7eb] bg-[#eef2f3] px-4 py-3.5 text-base text-[#0d1b2a] placeholder:text-zinc-400 outline-none transition focus:border-cyan-400 focus:bg-white focus:ring-4 focus:ring-cyan-100"
                 />
               </label>
@@ -166,19 +182,22 @@ export default function Contact() {
                 Message
               </span>
               <textarea
+                name="message"
                 rows={7}
                 placeholder="Tell me about your project or idea..."
+                required
                 className="w-full resize-none rounded-[24px] border border-[#dfe7eb] bg-[#eef2f3] px-4 py-4 text-base text-[#0d1b2a] placeholder:text-zinc-400 outline-none transition focus:border-cyan-400 focus:bg-white focus:ring-4 focus:ring-cyan-100"
               />
             </label>
 
             <button
-              type="button"
+              type="submit"
               className="mt-7 flex w-full items-center justify-center gap-3 rounded-[22px] bg-gradient-to-r from-[#3ecbe7] to-[#4db7d3] px-6 py-4 text-lg font-semibold text-white shadow-[0_14px_30px_rgba(61,186,216,0.35)] transition-transform hover:-translate-y-0.5"
             >
               <Send className="h-5 w-5" />
               Send Message
             </button>
+            </form>
           </motion.div>
         </div>
 
