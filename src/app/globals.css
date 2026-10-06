@@ -16,6 +16,25 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes footer-name-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-12%);
+  }
+}
+
+.footer-name-animation {
+  animation: footer-name-drift 32s linear infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-name-animation {
+    animation: none;
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

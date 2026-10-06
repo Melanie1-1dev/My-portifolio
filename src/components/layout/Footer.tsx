@@ -5,6 +5,14 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-zinc-950 text-zinc-300">
       <div className="pointer-events-none absolute -top-32 right-[-8rem] h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 flex select-none items-center overflow-hidden"
+      >
+        <span className="footer-name-animation whitespace-nowrap text-[22vw] font-black leading-none tracking-[-0.08em] text-accent/[0.12]">
+          MELANIE
+        </span>
+      </div>
       <div className="relative mx-auto max-w-6xl px-4 pb-8 pt-16 sm:px-6 lg:px-8 lg:pt-20">
         <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-[1.4fr_0.7fr_1fr] md:gap-16">
           <div>
