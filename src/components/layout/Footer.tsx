@@ -9,7 +9,7 @@ export default function Footer() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 flex select-none items-center overflow-hidden"
       >
-        <span className="footer-name-animation whitespace-nowrap text-[22vw] font-black leading-none tracking-[-0.08em] text-accent/[0.12]">
+        <span className="footer-name-animation whitespace-nowrap text-[22vw] font-black leading-none tracking-[-0.08em] text-accent/[0.24]">
           MELANIE
         </span>
       </div>
