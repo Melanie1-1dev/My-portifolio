@@ -2,6 +2,20 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "famnest",
+    title: "FamNest",
+    description:
+      "A family-focused web application with account registration, sign-in, and password recovery.",
+    problem:
+      "Users need a clear way to create an account and access the FamNest platform.",
+    solution:
+      "A web-based experience with registration, login, and password recovery flows.",
+    tech: [],
+    live: "https://fam-net.vercel.app/",
+    featured: true,
+    category: "Frontend",
+  },
+  {
     id: "health-management-system",
     title: "Health Management System",
     description:
