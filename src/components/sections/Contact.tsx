@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -27,12 +27,27 @@ const quickLinks = [
 ];
 
 export default function Contact() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const [formStatus, setFormStatus] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const values = new FormData(event.currentTarget);
-    const subject = `Portfolio message from ${values.get("name")}`;
-    const body = `Name: ${values.get("name")}\nEmail: ${values.get("email")}\n\n${values.get("message")}`;
-    window.location.href = `mailto:${socials.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const form = event.currentTarget;
+    const values = new FormData(form);
+    setFormStatus("Sending your message…");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(values.entries())),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Could not send your message.");
+      form.reset();
+      setFormStatus("Thanks! Your message has been sent.");
+    } catch (error) {
+      setFormStatus(error instanceof Error ? error.message : "Could not send your message.");
+    }
   }
 
   return (
@@ -147,6 +162,10 @@ export default function Contact() {
             className="rounded-[30px] border border-[#dfe7eb] bg-[#f5f6f7] p-5 sm:p-7 shadow-[0_18px_50px_rgba(15,23,42,0.07)]"
           >
             <form onSubmit={handleSubmit}>
+            <label className="sr-only" aria-hidden="true">
+              Website
+              <input name="website" tabIndex={-1} autoComplete="off" />
+            </label>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block text-left">
                 <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
@@ -197,6 +216,9 @@ export default function Contact() {
               <Send className="h-5 w-5" />
               Send Message
             </button>
+            <p className="mt-4 text-center text-sm text-zinc-600" role="status" aria-live="polite">
+              {formStatus}
+            </p>
             </form>
           </motion.div>
         </div>
