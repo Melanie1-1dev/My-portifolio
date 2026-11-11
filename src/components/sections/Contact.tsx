@@ -162,10 +162,6 @@ export default function Contact() {
             className="rounded-[30px] border border-[#dfe7eb] bg-[#f5f6f7] p-5 sm:p-7 shadow-[0_18px_50px_rgba(15,23,42,0.07)]"
           >
             <form onSubmit={handleSubmit}>
-            <label className="sr-only" aria-hidden="true">
-              Website
-              <input name="website" tabIndex={-1} autoComplete="off" />
-            </label>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block text-left">
                 <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500">

@@ -25,10 +25,6 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!("data" in validation)) {
-    return NextResponse.json({ success: true });
-  }
-
   const result = await sendContactMessage(validation.data);
 
   if (!result.ok) {

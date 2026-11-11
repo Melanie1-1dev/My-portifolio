@@ -4,22 +4,20 @@ export type ContactInput = {
   name: string;
   email: string;
   message: string;
-  website?: string;
 };
 
 export type ContactResult =
   | { ok: true }
   | { ok: false; status: number; error: string };
 
-export function validateContactInput(input: unknown): ContactResult | { ok: true; data: ContactInput } {
+export function validateContactInput(
+  input: unknown,
+): { ok: true; data: ContactInput } | { ok: false; status: number; error: string } {
   if (!input || typeof input !== "object") {
     return { ok: false, status: 400, error: "Please send a valid message." };
   }
 
-  const { name, email, message, website } = input as Record<string, unknown>;
-
-  // Bots often fill every field. Silently accept and discard honeypot submissions.
-  if (typeof website === "string" && website.trim()) return { ok: true };
+  const { name, email, message } = input as Record<string, unknown>;
 
   if (
     typeof name !== "string" || name.trim().length < 2 || name.length > 100 ||
